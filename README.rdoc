@@ -1,7 +1,39 @@
 = envie
 
-Description goes here.
+Feature toggles made easy.
 
+== Non rails usage
+
+Creating two enviroments:
+
+	production = Envie.production.with(:oauth)
+	development = production.derive.with(:openid)
+	
+And now making available code for specific features
+
+	feature(:oauth) do
+   		# code that will run only if oauth is available
+	end
+
+	feature(:openid) do
+   		# code that will run only if openid is available
+	end
+	
+Code is attached to features, not enviroments, so one can easily move the feature from one place
+to another without having to "grep" and find all its usage.
+
+== Rails usage
+
+Set up your enviroment at enviroment.rb and use the features everywhere: in your routes, controllers and erb (or haml) templates.
+
+Contributing with Rails usage?
+
+We are expecting contributions that automatically define enviroments by reading an active record table.
+
+== Installing
+
+	gem install envie
+	
 == Contributing to envie
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
