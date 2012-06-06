@@ -1,5 +1,6 @@
 require 'envie/env'
 require 'envie/featurable'
+require 'envie/version'
 module Envie
   class << self
 
